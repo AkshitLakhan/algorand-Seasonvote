@@ -11,9 +11,9 @@ console.log(applicationInfoResponse["params"]["global-state"][n]);
  }
 }
 // Application ID
-let index = 653263391;
+let index = 655255674;
 //Make sure you change it to yours.
-let myaccount = algosdk.mnemonicToSecretKey("train arch legal casual question unfold together speak oppose catch you risk artefact famous rookie wise enact stay utility ensure actual cup purpose about drink");
+let myaccount = algosdk.mnemonicToSecretKey("spell bounce oval soccer tonight during poverty fog long metal game grass able pottery jeans enable siege kingdom lens jungle brisk erode six abstract afford");
 let sender = myaccount.addr; 
 
 const baseServer = "https://testnet-api.algonode.cloud";
@@ -38,7 +38,7 @@ let txId = txn.txID().toString();
 let signedTxn = txn.signTxn(myaccount.sk);
 console.log("Signed transaction with txID: %s", txId);
 await algodClient.sendRawTransaction(signedTxn).do();
-await algosdk.waitForConfirmation(algodClient, txId, 2);
+await algosdk.waitForConfirmation(algodClient, txId, 3);
 // display results
 let transactionResponse = await algodClient
  .pendingTransactionInformation(txId)
@@ -61,7 +61,7 @@ let txn2 = algosdk.makeApplicationNoOpTxn(sender, params, index,
     let signedTxn2 = txn2.signTxn(myaccount.sk);
     console.log("Signed transaction with txID: %s", txId2);
     await algodClient.sendRawTransaction(signedTxn2).do();
-    await algosdk.waitForConfirmation(algodClient, txId2, 2);
+    await algosdk.waitForConfirmation(algodClient, txId2, 3);
     // display results
     let transactionResponse2 = await algodClient
      .pendingTransactionInformation(txId2)

@@ -3,7 +3,7 @@ import algosdk from "algosdk";
 dotenv.config();
 
 // Don’t forget to add your mnemonic
-let myaccount = algosdk.mnemonicToSecretKey("train arch legal casual question unfold together speak oppose catch you risk artefact famous rookie wise enact stay utility ensure actual cup purpose about drink");
+let myaccount = algosdk.mnemonicToSecretKey("spell bounce oval soccer tonight during poverty fog long metal game grass able pottery jeans enable siege kingdom lens jungle brisk erode six abstract afford");
 
 const baseServer = "https://testnet-api.algonode.cloud";
 const algodClient = new algosdk.Algodv2("", baseServer, "");
@@ -38,7 +38,7 @@ const blockchain = async () => {
     await algodClient.sendRawTransaction(signedTxn).do();
 
     // Wait for confirmation
-    let confirmedTxn = await algosdk.waitForConfirmation(algodClient, txId, 4);
+    let confirmedTxn = await algosdk.waitForConfirmation(algodClient, txId, 3);
 
     accountInfo = await algodClient.accountInformation(myaccount.addr).do();
     console.log("Transaction Amount: %d microAlgos", confirmedTxn.txn.txn.amt);

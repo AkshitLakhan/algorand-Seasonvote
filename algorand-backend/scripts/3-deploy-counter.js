@@ -4,7 +4,7 @@ import { open, readFile } from "node:fs/promises";
 dotenv.config();
 const baseServer = "https://testnet-api.algonode.cloud";
 const algodClient = new algosdk.Algodv2("", baseServer, "");
-let myaccount = algosdk.mnemonicToSecretKey("train arch legal casual question unfold together speak oppose catch you risk artefact famous rookie wise enact stay utility ensure actual cup purpose about drink");
+let myaccount = algosdk.mnemonicToSecretKey("spell bounce oval soccer tonight during poverty fog long metal game grass able pottery jeans enable siege kingdom lens jungle brisk erode six abstract afford");
 let sender = myaccount.addr; 
 
 async function compileProgram(client, TealSource) {
@@ -19,7 +19,7 @@ async function compileProgram(client, TealSource) {
     try {
     const localInts = 0
     const localBytes = 0
-    const globalInts = 1
+    const globalInts = 3
     const globalBytes = 0
     let approvalProgramfile = await
     open('./contracts/artifacts/counter_approval.teal');
@@ -46,7 +46,7 @@ async function compileProgram(client, TealSource) {
     await algodClient.sendRawTransaction(signedTxn).do();
 
     // Wait for confirmation
-await algosdk.waitForConfirmation(algodClient, txId, 2);
+await algosdk.waitForConfirmation(algodClient, txId, 3);
 // print the app-id
 let transactionResponse = await
 algodClient.pendingTransactionInformation(txId).do();
